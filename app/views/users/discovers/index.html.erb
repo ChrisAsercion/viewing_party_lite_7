@@ -1,1 +1,8 @@
-suh
+<%= @user.name %>'s discover movie page
+
+<%= button_to "Top Movies", user_movies_path(@user), method: :get  %>
+
+<%= form_tag user_movies_path(@user), method: :get, class: "search-form" do %>
+  <%= text_field_tag :query, nil, placeholder: "Search..." %>
+  <%= button_to "Search", "#", type: "submit", form_class: "search-button" %>
+<% end %>
