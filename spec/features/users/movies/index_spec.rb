@@ -1,18 +1,14 @@
 require "rails_helper"
+require 'webmock/rspec'
 
 RSpec.describe "Users Movie index" do
   describe "index" do
-    scenario "when I visit users/user_id/discover" do
-      u1 = User.create!(name: "Sean", email: "champion4lyfe@gmail.com")
+    scenario "when I visit users/user_id/movies" do
+      it "shows the top 20 movies" do
+        json_response = File.read()
 
-      visit(user_discover_index_path(u1))
-
-      expect(page).to have_button("Top Movies")
-      expect(page).to have_button("Search")
-      
-      click_button("Top Movies")
-
-      expect(current_path).to eq(user_movies_path(u1))
+        stub_request(:get, "")
+      end
     end
   end
 end
